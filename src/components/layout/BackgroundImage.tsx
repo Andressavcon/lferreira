@@ -10,7 +10,7 @@ interface BackgroundImageProps {
 	fixed?: boolean;
 	className?: string;
 	priority?: boolean;
-	objectPosition?: string; 
+	objectPosition?: string;
 }
 
 export default function BackgroundImage({
@@ -20,7 +20,7 @@ export default function BackgroundImage({
 	fixed = true,
 	className,
 	priority = true,
-	objectPosition = "center center", 
+	objectPosition = "center center",
 }: BackgroundImageProps) {
 	return (
 		<div

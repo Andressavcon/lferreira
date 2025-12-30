@@ -99,6 +99,14 @@ export function MusicTimelineItem({ item, index }: MusicItemProps) {
 								YouTube
 							</a>
 						)}
+						{item.links.deezer && (
+							<a
+								href={item.links.deezer}
+								className="hover:text-cyan-400 transition-colors"
+							>
+								Deezer
+							</a>
+						)}
 						{item.links.apple && (
 							<a
 								href={item.links.apple}

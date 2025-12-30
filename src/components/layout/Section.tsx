@@ -13,7 +13,7 @@ export function Section({ children, className, full = false }: SectionProps) {
 		<section
 			className={clsx(
 				"relative",
-				"py-16 md:py-24 lg:py-32",
+				"py-6 md:py-8 lg:py-12",
 				full && "min-h-screen flex flex-col justify-center",
 				className
 			)}

@@ -7,6 +7,7 @@ import BackgroundImage from "../layout/BackgroundImage";
 import { galleryImages } from "./GalleryData";
 import { useTranslations } from "next-intl";
 import PageWrapper from "@/components/transition/PageWrapper";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function Gallery() {
 	const t = useTranslations("gallery");
@@ -75,36 +76,50 @@ export default function Gallery() {
 			</main>
 
 			{/* Lightbox */}
-			{selectedImage !== null && (
-				<div
-					className="fixed mt-10 inset-0 z-[1000] flex items-center justify-center bg-black/95 backdrop-blur-md p-6 md:p-12"
-					onClick={() => setSelectedImage(null)}
-				>
-					<button
+			<AnimatePresence>
+				{selectedImage !== null && (
+					<motion.div
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1 }}
+						exit={{ opacity: 0 }}
+						transition={{ duration: 0.3 }}
+						className="fixed mt-10 inset-0 z-[1000] flex items-center justify-center bg-black/95 backdrop-blur-md p-6 md:p-12"
 						onClick={() => setSelectedImage(null)}
-						className="absolute top-8 right-8 text-white/70 hover:text-white transition-colors z-[1010]"
 					>
-						<X size={40} />
-					</button>
+						<motion.button
+							initial={{ opacity: 0, scale: 0.8 }}
+							animate={{ opacity: 1, scale: 1 }}
+							exit={{ opacity: 0, scale: 0.8 }}
+							onClick={() => setSelectedImage(null)}
+							className="absolute top-8 right-8 text-white/70 hover:text-white transition-colors z-[1010]"
+						>
+							<X size={40} />
+						</motion.button>
 
-					<div
-						className="relative w-full h-full max-w-5xl max-h-[80vh] flex items-center justify-center"
-						onClick={(e) => e.stopPropagation()}
-					>
-						<Image
-							src={
-								galleryImages.find((img) => img.id === selectedImage)?.src || ""
-							}
-							alt="Full size"
-							fill
-							className="object-contain"
-							quality={85}
-							priority
-							sizes="90vw"
-						/>
-					</div>
-				</div>
-			)}
+						<motion.div
+							initial={{ opacity: 0, scale: 0.9 }}
+							animate={{ opacity: 1, scale: 1 }}
+							exit={{ opacity: 0, scale: 0.9 }}
+							transition={{ type: "spring", damping: 25, stiffness: 200 }}
+							className="relative w-full h-full max-w-5xl max-h-[80vh] flex items-center justify-center"
+							onClick={(e) => e.stopPropagation()}
+						>
+							<Image
+								src={
+									galleryImages.find((img) => img.id === selectedImage)?.src ||
+									""
+								}
+								alt="Full size"
+								fill
+								className="object-contain"
+								quality={85}
+								priority
+								sizes="90vw"
+							/>
+						</motion.div>
+					</motion.div>
+				)}
+			</AnimatePresence>
 		</PageWrapper>
 	);
 }

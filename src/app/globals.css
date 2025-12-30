@@ -163,3 +163,23 @@ p {
 .animate-fade-in-up {
 	animation: fade-in-up 0.8s ease forwards;
 }
+
+/* --- CUSTOM SHEET TRANSITIONS --- */
+
+[data-slot="sheet-overlay"] {
+  backdrop-filter: blur(4px);
+  background-color: rgba(0, 0, 0, 0.7) !important;
+  transition: all 0.5s ease-in-out;
+}
+
+[data-slot="sheet-content"] {
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease-in-out !important;
+}
+
+[data-state="closed"][data-slot="sheet-content"] {
+  animation-duration: 500ms !important;
+}
+
+[data-state="open"][data-slot="sheet-content"] {
+  animation-duration: 500ms !important;
+}

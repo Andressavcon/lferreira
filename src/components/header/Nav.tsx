@@ -4,6 +4,7 @@ import styles from "./Header.module.css";
 import { usePathname } from "@/navigation";
 import { Menu } from "lucide-react";
 import LanguageSwitcher from "../LanguageSwitcher";
+import { motion } from "framer-motion"; // <-- ADICIONE ESTA IMPORTAÇÃO
 import {
 	Sheet,
 	SheetContent,
@@ -37,7 +38,7 @@ export default function Nav() {
 	return (
 		<div className="flex items-center">
 			{/* --- VERSÃO DESKTOP --- */}
-			<nav className="hidden lg:flex items-center gap-8 mr-8">
+			<nav className="hidden lg:flex items-center gap-8 pt-1 mr-8">
 				{navItems.map((item) => {
 					const isActive = pathname === item.href;
 					return (
@@ -65,16 +66,25 @@ export default function Nav() {
 
 					<SheetContent
 						side="right"
-						className="bg-black/95 border-zinc-800 p-0 text-white w-[250px]"
+						className="bg-black/90 backdrop-blur-xl border-zinc-800 p-0 text-white w-[250px]"
 					>
 						<SheetTitle className="sr-only">Menu de Navegação</SheetTitle>
 
 						<nav className="flex flex-col mt-20 px-8 h-full">
-							{navItems.map((item) => {
+							{navItems.map((item, index) => {
 								const isActive = pathname === item.href;
 								return (
-									<button
+									<motion.button
 										key={item.href}
+										initial={{ opacity: 0, x: 20 }}
+										animate={
+											open ? { opacity: 1, x: 0 } : { opacity: 0, x: 10 }
+										}
+										transition={{
+											delay: open ? index * 0.07 : 0,
+											duration: 0.2,
+											ease: "easeOut",
+										}}
 										onClick={() => handleNavigation(item.href)}
 										className={`py-4 text-left text-xl font-bogle uppercase tracking-[0.2em] border-b border-white/5 transition-colors ${
 											isActive
@@ -83,15 +93,20 @@ export default function Nav() {
 										}`}
 									>
 										{item.label}
-									</button>
+									</motion.button>
 								);
 							})}
 
-							<div className="mt-8 pt-8 ">
+							<motion.div
+								initial={{ opacity: 0 }}
+								animate={open ? { opacity: 1 } : { opacity: 0 }}
+								transition={{ delay: navItems.length * 0.1 }}
+								className="mt-8 pt-8"
+							>
 								<div className="scale-125 origin-left">
 									<LanguageSwitcher />
 								</div>
-							</div>
+							</motion.div>
 						</nav>
 					</SheetContent>
 				</Sheet>

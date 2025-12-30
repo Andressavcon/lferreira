@@ -11,10 +11,11 @@ export default function About() {
 		<PageWrapper>
 			<main className="relative h-screen overflow-hidden">
 				<BackgroundImage
-					src="/img/about.svg"
+					src="/img/about.jpg"
 					imageOpacity={0.9}
 					overlayOpacity={0.1}
 					objectPosition="60% center"
+					priority={true}
 				/>
 
 				<Container
