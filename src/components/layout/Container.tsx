@@ -21,7 +21,7 @@ export default function Container({
 		<div
 			className={clsx(
 				"mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8 h-full flex flex-col",
-				paddingTop ? "pt-24 md:pt-32" : "pt-0"
+				paddingTop ? "pt-16 md:pt-24" : "pt-0"
 			)}
 		>
 			{!clean && title && (
