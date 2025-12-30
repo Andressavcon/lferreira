@@ -1,0 +1,80 @@
+{
+	"header": {
+		"home": "Home",
+		"about": "About",
+		"music": "Music",
+		"gallery": "Gallery",
+		"videos": "Videos",
+		"shop": "Shop",
+		"contact": "Contact"
+	},
+	"home": {
+		"subtitle": "DJ • Music Producer",
+		"contact": "GET IN TOUCH"
+	},
+	"about": {
+		"title": "BIOGRAPHY",
+		"p1": "LFERREIRA is the project of DJ and music producer Lucas Ferreira, established in 2016 in Southern Brazil. With a sonic identity focused on progressive and melodic house, the artist has already surpassed 1 million streams across digital platforms.",
+		"p2": "Throughout his career, LFERREIRA has shared the stage with major names in the national and international electronic scene. His productions have been featured on specialized radio stations and programs in Brazil, Italy, Greece, Spain, Turkey, and beyond.",
+		"p3": "His career is highlighted by releases on European labels, original EPs and singles, as well as official remixes and reworks for artists such as Juliano Holanda, Robin Gibb (Bee Gees), and most recently, an official remix for Seu Jorge.",
+		"p4": "In addition to his artistic performance, Lucas is the founder of Núcleo Label and the annual event 'LFERREIRA & Convidados', an initiative that connects established artists and new talents within the electronic music industry.",
+		"presskit": "Press Kit"
+	},
+	"music": {
+		"title": "MUSIC",
+		"viewMore": "LISTEN MORE",
+		"description1": "Officially released in the second half of 2025, this track marked a new chapter in LFERREIRA's career, showcasing a more musical soundscape with organic instrumentation and fewer synthetic elements. 'Coffee Date' was born from Lucas's original composition, embracing a romantic and timeless aesthetic.",
+		"description2": "A rework of an 80s classic in collaboration with SEVEK and Lucas Belgrado. The track has amassed thousands of streams across digital platforms, becoming the artist's most requested song during his live performances.",
+		"description3": "An official remix produced for Seu Jorge, blending signature House and Tech House elements. The track stood out as one of the top productions of 2024 in the artist's career.",
+		"description4": "An original mix officially released by the North American label Exx Musik. It reached #9 on the Beatport charts, ranking among the world's best-selling Deep House tracks and remaining the label's top-selling song for several months."
+	},
+	"gallery": {
+		"title": "GALLERY",
+		"view": "VIEW"
+	},
+	"shop": {
+		"title": "SHOP",
+		"description": "Coming soon, items in the shop!"
+	},
+	"videos": {
+		"title": "VIDEOS",
+		"month": {
+			"january": "January",
+			"february": "February",
+			"march": "March",
+			"april": "April",
+			"may": "May",
+			"june": "June",
+			"july": "July",
+			"august": "August",
+			"september": "September",
+			"october": "October",
+			"november": "November",
+			"december": "December"
+		}
+	},
+	"contact": {
+		"title": "CONTACT",
+		"name": "Name",
+		"email": "Email",
+		"options": {
+			"title": "I am a",
+			"fan": "Fan",
+			"musician": "Musician / Professional",
+			"booking": "Booking Agent / Club Owner / Promoter",
+			"press": "Press Agent (Marketing, Invitations, Endorsement, PR)",
+			"other": "Other"
+		},
+		"message": "Message",
+		"messageSuccess": "Message sent successfully.",
+		"messageError": "Something went wrong. Please try again.",
+		"sending": "SENDING...",
+		"send": "SEND MESSAGE"
+	},
+	"notFound": {
+		"subtitle": "404",
+		"message1": "This page doesn't exist.",
+		"message2": "Or maybe it never did.",
+		"message3": "Back to home"
+	}
+}

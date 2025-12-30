@@ -1,0 +1,15 @@
+{
+	"files.exclude": {
+		"**/.next": true,
+		"**/node_modules": true,
+		"next-env.d.ts": true,
+		"package-lock.json": true,
+		"components.json": true
+	},
+	"explorer.fileNesting.enabled": true,
+	"explorer.fileNesting.patterns": {
+		"package.json": "package-lock.json",
+		"next.config.ts": "next-env.d.ts",
+		"tsconfig.json": "components.json"
+	}
+}

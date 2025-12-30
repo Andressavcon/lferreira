@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎵 LFERREIRA - Official Website
 
-## Getting Started
+Official website developed for the DJ and Producer **LFERREIRA**, designed to provide fast navigation, a clean visual interface, and multi-language support.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🔗 Live Demo
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+👉 **[Access the Website Online](https://seu-projeto.vercel.app)**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 🛠️ Tech Stack
 
-## Learn More
+The project uses modern tools to ensure a seamless user experience across all devices:
 
-To learn more about Next.js, take a look at the following resources:
+- **Core:** React 19 & Next.js 15 (App Router).
+- **Animations:** Framer Motion & TW-Animate-CSS for smooth page transitions.
+- **Internationalization:** Next-intl for native multi-language support (i18n).
+- **Styling:** Tailwind CSS & Radix UI.
+- **Typing:** TypeScript.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## ✨ Development Highlights
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. **Seamless Navigation:** Custom page transition system that eliminates visual cuts, maintaining immersion in the artist's content.
+2. **Performance:** Optimized image and file loading, ensuring fast access even on mobile connections.
+3. **Clean Interface:** Design focused on media (photos and music), featuring a hidden scrollbar and galleries with Lightbox.
+4. **Scalable Architecture:** Structure prepared for easy addition of new languages and content.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 📄 Information
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This is an artistic promotional project.
+Developed by **Andressa Vargas Conrado**.

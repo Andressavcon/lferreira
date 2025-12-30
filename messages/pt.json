@@ -1,0 +1,80 @@
+{
+	"header": {
+		"home": "Inicio",
+		"about": "Sobre",
+		"music": "Musica",
+		"gallery": "Galeria",
+		"videos": "Videos",
+		"shop": "Loja",
+		"contact": "Contato"
+	},
+	"home": {
+		"subtitle": "DJ • Produtor Musical",
+		"contact": "ENTRE EM CONTATO"
+	},
+	"about": {
+		"title": "BIOGRAFIA",
+		"p1": "LFERREIRA é o projeto do DJ e produtor musical Lucas Ferreira, criado em 2016 no Rio Grande do Sul. Com identidade sonora voltada ao progressive e melodic house, o artista soma hoje mais de 1 milhão de streams nas plataformas digitais.",
+		"p2": "Ao longo da trajetória, LFERREIRA dividiu o palco com nomes relevantes da cena eletrônica nacional e internacional, além de ter suas produções executadas em rádios e programas especializados no Brasil, Itália, Grécia, Espanha, Turquia e outros países.",
+		"p3": "Sua carreira é marcada por lançamentos em selos europeus, EPs e singles autorais, além de remixes e reworks oficiais para artistas como Juliano Holanda, Robin Gibb (Bee Gees) e, mais recentemente, um remix oficial para Seu Jorge.",
+		"p4": "Além da atuação artística, Lucas é idealizador da Núcleo Label e do evento anual “LFERREIRA & Convidados”, iniciativa que conecta artistas consolidados e novos talentos dentro da música eletrônica.",
+		"presskit": "Press Kit"
+	},
+	"music": {
+		"title": "MUSICA",
+		"viewMore": "OUVIR MAIS",
+		"description1": "Lançada oficialmente no segundo semestre de 2025, a faixa marcou uma nova fase na carreira de LFERREIRA, apresentando uma sonoridade mais musical, com maior presença de instrumentos orgânicos e menos elementos excessivamente sintetizados. Coffee Date nasceu a partir de uma composição de Lucas, com uma proposta mais romântica e atemporal.",
+		"description2": "Releitura de um clássico dos anos 80, em colaboração com SEVEK e Lucas Belgrado. A música conquistou milhares de plays nas plataformas digitais, tornando-se a faixa mais pedida do artista em suas apresentações ao vivo.",
+		"description3": "Remix oficial produzido para Seu Jorge, incorporando elementos marcantes de House e Tech House. A faixa se destacou como uma das melhores produções de 2024 na carreira do artista.",
+		"description4": "Faixa autoral (Original Mix), lançada oficialmente pela gravadora norte-americana Exx Musik. Alcançou o Top 09 do Beatport, figurando entre os Deep House mais vendidos do mundo, além de permanecer por meses como a música mais vendida da gravadora."
+	},
+	"gallery": {
+		"title": "GALERIA",
+		"view": "VER"
+	},
+	"shop": {
+		"title": "LOJA",
+		"description": "Em breve, itens na loja!"
+	},
+	"videos": {
+		"title": "VIDEOS",
+		"month": {
+			"january": "Janeiro",
+			"february": "Fevereiro",
+			"march": "Março",
+			"april": "Abril",
+			"may": "Maio",
+			"june": "Junho",
+			"july": "Julho",
+			"august": "Agosto",
+			"september": "Setembro",
+			"october": "Outubro",
+			"november": "Novembro",
+			"december": "Dezembro"
+		}
+	},
+	"contact": {
+		"title": "CONTATO",
+		"name": "Nome",
+		"email": "Email",
+		"options": {
+			"title": "Eu sou um(a)",
+			"fan": "Fã",
+			"musician": "Músico / Profissional",
+			"booking": "Contratante / Club Owner / Promoter",
+			"press": "Agente de Imprensa (Marketing, Convites, Endosso, PR)",
+			"other": "Outros"
+		},
+		"message": "Mensagem",
+		"messageSuccess": "Mensagem enviada com sucesso.",
+		"messageError": "Algo deu errado. Por favor, tente novamente.",
+		"sending": "ENVIANDO...",
+		"send": "ENVIAR MENSAGEM"
+	},
+	"notFound": {
+		"subtitle": "404",
+		"message1": "Essa página não existe.",
+		"message2": "Ou talvez nunca tenha existido.",
+		"message3": "Voltar para o inicio"
+	}
+}
