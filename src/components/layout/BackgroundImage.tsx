@@ -38,6 +38,7 @@ export default function BackgroundImage({
 					src={src}
 					alt="Background"
 					fill
+					placeholder="blur"
 					priority={priority}
 					className="object-cover"
 					style={{ objectPosition: objectPosition }}

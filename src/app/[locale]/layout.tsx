@@ -15,7 +15,7 @@ export const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-	title: "LFERREIRA",
+	title: "LFERREIRA | DJ & Music Producer",
 	description: "DJ / Music Producer",
 };
 
