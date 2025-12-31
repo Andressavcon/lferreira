@@ -1,21 +1,29 @@
 "use client";
+
 import { useState } from "react";
-import Image from "next/image";
+import NextImage from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronLeft, ChevronRight, Play, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useTranslations } from "next-intl";
+
+import { usePageLoader } from "@/hooks/usePageLoader";
 import Container from "../layout/Container";
 import BackgroundImage from "../layout/BackgroundImage";
-import { videos } from "./VideosData";
-import { useTranslations } from "next-intl";
-import { formatVideoDate } from "@/lib/utils";
+import LoadingScreen from "../layout/LoadingScreen";
 import PageWrapper from "@/components/transition/PageWrapper";
+
+import { videos } from "./VideosData";
+import { formatVideoDate } from "@/lib/utils";
 
 export default function VideosPage() {
 	const t = useTranslations("videos");
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const [direction, setDirection] = useState(0);
 	const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
+	const bgImage = "/img/KJ-240.jpeg";
+
+	const loading = usePageLoader(bgImage);
 
 	const monthKeys: { [key: string]: string } = {
 		"01": "january",
@@ -57,9 +65,19 @@ export default function VideosPage() {
 
 	return (
 		<PageWrapper>
-			<main className="relative h-screen overflow-hidden">
+			<AnimatePresence mode="wait">
+				{loading && <LoadingScreen key="loader-videos" />}
+			</AnimatePresence>
+
+			<main
+				style={{
+					opacity: loading ? 0 : 1,
+					transition: "opacity 1.5s ease-in-out",
+				}}
+				className="relative h-screen overflow-hidden"
+			>
 				<BackgroundImage
-					src="/img/KJ-240.jpeg"
+					src={bgImage}
 					imageOpacity={0.3}
 					overlayOpacity={0.8}
 				/>
@@ -83,7 +101,7 @@ export default function VideosPage() {
 									className="hidden xl:block absolute left-1/2 z-0 pointer-events-none"
 								>
 									<div className="relative w-[450px] aspect-video rounded-2xl overflow-hidden grayscale-[60%] border border-white/10">
-										<Image
+										<NextImage
 											src={videos[visible.prev].thumbnail}
 											alt=""
 											fill
@@ -124,7 +142,7 @@ export default function VideosPage() {
 												setSelectedVideo(videos[visible.current].youtubeUrl)
 											}
 										>
-											<Image
+											<NextImage
 												src={videos[visible.current].thumbnail}
 												alt=""
 												fill
@@ -170,7 +188,7 @@ export default function VideosPage() {
 									className="hidden xl:block absolute left-1/2 z-0 pointer-events-none"
 								>
 									<div className="relative w-[450px] aspect-video rounded-2xl overflow-hidden grayscale-[60%] border border-white/10">
-										<Image
+										<NextImage
 											src={videos[visible.next].thumbnail}
 											alt=""
 											fill

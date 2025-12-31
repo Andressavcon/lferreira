@@ -1,26 +1,41 @@
 "use client";
 
+import { useTranslations } from "next-intl";
+import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
+import NextImage from "next/image";
+
+import { usePageLoader } from "@/hooks/usePageLoader";
 import BackgroundImage from "../layout/BackgroundImage";
 import Container from "../layout/Container";
-import Image from "next/image";
-import Link from "next/link";
-import { useTranslations } from "next-intl";
-import { motion } from "framer-motion";
+import LoadingScreen from "../layout/LoadingScreen";
 import PageWrapper from "@/components/transition/PageWrapper";
 
 export default function Shop() {
 	const t = useTranslations("notFound");
 	const tShop = useTranslations("shop");
+	const bgImage = "/img/gallery/8.jpg";
+
+	const loading = usePageLoader(bgImage);
 
 	return (
 		<PageWrapper>
-			<main className="relative h-screen overflow-hidden">
+			<AnimatePresence mode="wait">
+				{loading && <LoadingScreen key="loader-shop" />}
+			</AnimatePresence>
+
+			<main
+				style={{
+					opacity: loading ? 0 : 1,
+					transition: "opacity 1.5s ease-in-out",
+				}}
+				className="relative h-screen overflow-hidden"
+			>
 				<BackgroundImage
-					src="/img/gallery/8.jpg"
+					src={bgImage}
 					imageOpacity={0.4}
 					overlayOpacity={0.7}
 				/>
-
 				<Container
 					title={tShop("title")}
 					paddingTop={true}
@@ -34,7 +49,7 @@ export default function Shop() {
 							className="bg-black/20 backdrop-blur-md border border-white/5 p-12 md:p-20 rounded-3xl flex flex-col items-center text-center max-w-3xl"
 						>
 							<div className="flex items-center gap-2 mb-10">
-								<Image
+								<NextImage
 									src="/img/logo/lferreira-base.svg"
 									alt="LFerreira"
 									width={220}
@@ -42,7 +57,7 @@ export default function Shop() {
 									priority
 									className="opacity-90"
 								/>
-								<Image
+								<NextImage
 									src="/img/logo/lferreira-a.svg"
 									alt="A girando"
 									width={38}
@@ -52,14 +67,12 @@ export default function Shop() {
 								/>
 							</div>
 
-							{/* Texto Informativo */}
 							<div className="space-y-6">
 								<h1 className="text-2xl md:text-3xl font-extralight tracking-[0.25em] text-white leading-relaxed">
 									{tShop("description")}
 								</h1>
 							</div>
 
-							{/* Botão de Voltar */}
 							<Link
 								href="/"
 								className="mt-16 group relative overflow-hidden px-8 py-3 transition-all"

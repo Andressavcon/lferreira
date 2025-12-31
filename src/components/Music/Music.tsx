@@ -1,26 +1,45 @@
 "use client";
+
+import { useTranslations } from "next-intl";
+import { AnimatePresence } from "framer-motion";
+import { Plus } from "lucide-react";
+
+import { usePageLoader } from "@/hooks/usePageLoader";
+
 import BackgroundImage from "../layout/BackgroundImage";
 import Container from "../layout/Container";
+import LoadingScreen from "../layout/LoadingScreen";
+import PageWrapper from "@/components/transition/PageWrapper";
+import { Button } from "../ui";
+
 import { musicData } from "./MusicData";
 import { MusicTimelineItem } from "./MusicTimelineItem";
-import { Button } from "../ui";
-import { Plus } from "lucide-react";
-import { useTranslations } from "next-intl";
-import PageWrapper from "@/components/transition/PageWrapper";
 
 export default function Music() {
 	const t = useTranslations("music");
+	const bgImage = "/img/KJ-157.jpeg";
+
+	const loading = usePageLoader(bgImage);
 
 	return (
 		<PageWrapper>
-			<main className="relative h-screen overflow-hidden">
+			<AnimatePresence mode="wait">
+				{loading && <LoadingScreen key="loader-music" />}
+			</AnimatePresence>
+
+			<main
+				style={{
+					opacity: loading ? 0 : 1,
+					transition: "opacity 1.5s ease-in-out",
+				}}
+				className="relative h-screen overflow-hidden"
+			>
 				<BackgroundImage
-					src="/img/KJ-157.jpeg"
+					src={bgImage}
 					imageOpacity={0.15}
 					overlayOpacity={0.4}
 					objectPosition="center center"
 				/>
-
 				<Container
 					title={t("title")}
 					paddingTop={true}

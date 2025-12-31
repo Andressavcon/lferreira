@@ -1,27 +1,44 @@
 "use client";
+
 import { useState } from "react";
-import Image from "next/image";
+import NextImage from "next/image";
 import { X } from "lucide-react";
+import { useTranslations } from "next-intl";
+import { motion, AnimatePresence } from "framer-motion";
+
+import { usePageLoader } from "@/hooks/usePageLoader";
 import Container from "../layout/Container";
 import BackgroundImage from "../layout/BackgroundImage";
-import { galleryImages } from "./GalleryData";
-import { useTranslations } from "next-intl";
+import LoadingScreen from "../layout/LoadingScreen";
 import PageWrapper from "@/components/transition/PageWrapper";
-import { motion, AnimatePresence } from "framer-motion";
+
+import { galleryImages } from "./GalleryData";
 
 export default function Gallery() {
 	const t = useTranslations("gallery");
 	const [selectedImage, setSelectedImage] = useState<number | null>(null);
+	const bgImage = "/img/gallery/15.jpeg";
+
+	const loading = usePageLoader(bgImage);
 
 	return (
 		<PageWrapper>
-			<main className="relative h-screen overflow-hidden">
+			<AnimatePresence mode="wait">
+				{loading && <LoadingScreen key="loader-gallery" />}
+			</AnimatePresence>
+
+			<main
+				style={{
+					opacity: loading ? 0 : 1,
+					transition: "opacity 1.5s ease-in-out",
+				}}
+				className="relative h-screen overflow-hidden"
+			>
 				<BackgroundImage
-					src="/img/gallery/15.jpeg"
+					src={bgImage}
 					imageOpacity={0.3}
 					overlayOpacity={0.6}
 				/>
-
 				<Container
 					title={t("title")}
 					paddingTop={true}
@@ -59,7 +76,7 @@ export default function Gallery() {
 											</span>
 										</div>
 
-										<Image
+										<NextImage
 											src={image.src}
 											alt={image.description || "Gallery image"}
 											fill
@@ -104,7 +121,7 @@ export default function Gallery() {
 							className="relative w-full h-full max-w-5xl max-h-[80vh] flex items-center justify-center"
 							onClick={(e) => e.stopPropagation()}
 						>
-							<Image
+							<NextImage
 								src={
 									galleryImages.find((img) => img.id === selectedImage)?.src ||
 									""

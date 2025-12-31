@@ -15,8 +15,21 @@ export const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-	title: "LFERREIRA | DJ & Music Producer",
+	metadataBase: new URL("https://www.lferreiralive.com.br"),
+	title: "LFERREIRA | DJ & Producer",
 	description: "DJ / Music Producer",
+	alternates: {
+		canonical: "/",
+		languages: {
+			"pt-BR": "/pt",
+			"en-US": "/en",
+		},
+	},
+	openGraph: {
+		title: "LFERREIRA | DJ & Producer",
+		description: "DJ / Music Producer",
+		type: "website",
+	},
 };
 
 interface LocaleLayoutProps {

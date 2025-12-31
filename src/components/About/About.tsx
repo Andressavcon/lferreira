@@ -1,23 +1,40 @@
 "use client";
+
+import { useTranslations } from "next-intl";
+import { AnimatePresence } from "framer-motion";
+import { usePageLoader } from "@/hooks/usePageLoader";
+
 import Container from "../layout/Container";
 import BackgroundImage from "../layout/BackgroundImage";
-import { useTranslations } from "next-intl";
+import LoadingScreen from "../layout/LoadingScreen";
 import PageWrapper from "@/components/transition/PageWrapper";
 
 export default function About() {
 	const t = useTranslations("about");
+	const bgImage = "/img/about.svg";
+
+	const loading = usePageLoader(bgImage);
 
 	return (
 		<PageWrapper>
-			<main className="relative h-screen overflow-hidden">
+			<AnimatePresence mode="wait">
+				{loading && <LoadingScreen key="loader-about" />}
+			</AnimatePresence>
+
+			<main
+				style={{
+					opacity: loading ? 0 : 1,
+					transition: "opacity 1.5s ease-in-out",
+				}}
+				className="relative h-screen overflow-hidden"
+			>
 				<BackgroundImage
-					src="/img/about.svg"
+					src={bgImage}
 					imageOpacity={0.9}
 					overlayOpacity={0.1}
 					objectPosition="60% center"
 					priority={true}
 				/>
-
 				<Container
 					title={t("title")}
 					paddingTop={true}

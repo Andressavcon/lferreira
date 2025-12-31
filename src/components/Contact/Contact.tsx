@@ -5,17 +5,23 @@ import { FaDeezer, FaInstagram, FaSpotify, FaYoutube } from "react-icons/fa";
 import { SiApplemusic } from "react-icons/si";
 import { PiMapPinFill } from "react-icons/pi";
 import { IoMail } from "react-icons/io5";
+import { useTranslations } from "next-intl";
+import { motion, AnimatePresence } from "framer-motion";
+
+import { usePageLoader } from "@/hooks/usePageLoader";
 import Container from "../layout/Container";
 import BackgroundImage from "../layout/BackgroundImage";
-import { Button } from "../ui";
-import { useTranslations } from "next-intl";
+import LoadingScreen from "../layout/LoadingScreen";
 import PageWrapper from "@/components/transition/PageWrapper";
-import { motion } from "framer-motion";
+import { Button } from "../ui";
 
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/xzdpopkq";
 
 export default function Contact() {
 	const t = useTranslations("contact");
+	const bgImage = "/img/KJ-130.jpeg";
+
+	const loading = usePageLoader(bgImage);
 
 	const [formData, setFormData] = useState({
 		name: "",
@@ -58,9 +64,19 @@ export default function Contact() {
 
 	return (
 		<PageWrapper>
-			<main className="relative">
+			<AnimatePresence mode="wait">
+				{loading && <LoadingScreen key="loader-contact" />}
+			</AnimatePresence>
+
+			<main
+				style={{
+					opacity: loading ? 0 : 1,
+					transition: "opacity 1.5s ease-in-out",
+				}}
+				className="relative"
+			>
 				<BackgroundImage
-					src="/img/KJ-130.jpeg"
+					src={bgImage}
 					imageOpacity={0.3}
 					overlayOpacity={0.4}
 					objectPosition="60% center"
