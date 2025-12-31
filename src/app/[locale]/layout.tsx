@@ -16,8 +16,8 @@ export const roboto = Roboto({
 
 export const metadata: Metadata = {
 	metadataBase: new URL("https://www.lferreiralive.com.br"),
-	title: "LFERREIRA | DJ & Producer",
-	description: "DJ / Music Producer",
+	title: "LFERREIRA",
+	description: "DJ & Music Producer",
 	alternates: {
 		canonical: "/",
 		languages: {
