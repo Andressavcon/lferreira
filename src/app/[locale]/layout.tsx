@@ -26,8 +26,8 @@ export const metadata: Metadata = {
 		},
 	},
 	openGraph: {
-		title: "LFERREIRA | DJ & Producer",
-		description: "DJ / Music Producer",
+		title: "LFERREIRA",
+		description: "DJ & Music Producer",
 		type: "website",
 	},
 };
