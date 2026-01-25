@@ -1,6 +1,6 @@
 # 🎵 LFERREIRA - Official Website
 
-![LFERREIRA Banner](./app/%5Blocale%5D/opengraph-image.png)
+![LFERREIRA Banner](./src/app/%5Blocale%5D/opengraph-image.png)
 
 Official website developed for DJ and Producer **LFERREIRA**, designed for fluid navigation, a clean visual interface, and native multi-language support.
 
