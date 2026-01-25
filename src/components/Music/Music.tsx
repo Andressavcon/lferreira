@@ -12,8 +12,9 @@ import LoadingScreen from "../layout/LoadingScreen";
 import PageWrapper from "@/components/transition/PageWrapper";
 import { Button } from "../ui";
 
-import { musicData } from "./MusicData";
+import { musicData, newMusicData } from "./MusicData";
 import { MusicTimelineItem } from "./MusicTimelineItem";
+import { NewMusicHighlight } from "./NewMusicHighlight";
 
 export default function Music() {
 	const t = useTranslations("music");
@@ -46,10 +47,14 @@ export default function Music() {
 					className="overflow-y-auto custom-scrollbar"
 				>
 					<div className="relative z-10 flex flex-col gap-10 lg:gap-16 items-start pb-24">
-						<div className="relative mx-auto w-full max-w-6xl mt-10">
-							<div className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-zinc-800 hidden lg:block" />
+						<div className="relative mx-auto w-full max-w-6xl">
+							<div className="mb-24">
+								<NewMusicHighlight item={newMusicData[0]} />
+							</div>
 
-							<div className="space-y-24 lg:space-y-40">
+							<div className="relative space-y-24 lg:space-y-40">
+								<div className="absolute left-1/2 top-0 h-full w-px -translate-x-1/2 bg-zinc-800 hidden lg:block" />
+
 								{musicData.map((item, index) => (
 									<MusicTimelineItem key={item.id} item={item} index={index} />
 								))}

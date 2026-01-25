@@ -11,6 +11,23 @@ export interface MusicItem {
 	};
 }
 
+export const newMusicData: MusicItem[] = [
+	{
+		id: 1,
+		title: "Kiss Of Life",
+		description: "descriptionNew",
+		image: "/music/kiss-of-life.jpg",
+		links: {
+			spotify:
+				"https://open.spotify.com/intl-pt/track/2LIukZT07bJ6dbLI6xHpu5?si=143cd813ddad4227",
+			youtube: "",
+			deezer: "https://link.deezer.com/s/32gzufPGz7h5utUebxkJk",
+			apple: "",
+		},
+	},
+
+];
+
 export const musicData: MusicItem[] = [
 	{
 		id: 1,
