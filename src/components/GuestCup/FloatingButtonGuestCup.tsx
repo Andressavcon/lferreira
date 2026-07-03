@@ -22,7 +22,7 @@ export default function FloatingButtonGuestCup({
 			rel={openInNewTab ? "noopener noreferrer" : undefined}
 			aria-label={label}
 			title={label}
-			className="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 z-50 block"
+			className="fixed bottom-8 right-8 sm:bottom-12 sm:right-12 z-50 block"
 		>
 			<motion.div
 				className="relative"

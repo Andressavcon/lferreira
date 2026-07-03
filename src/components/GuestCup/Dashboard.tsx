@@ -266,7 +266,7 @@ export default function DashboardPage() {
 					animate={{ opacity: 1, x: 0 }}
 					exit={{ opacity: 0, x: -48 }}
 					transition={{ duration: 0.3, ease: "easeInOut" }}
-					className="min-h-screen bg-[#0b0a07] text-neutral-100 custom-scrollbar relative"
+					className="min-h-screen bg-[#0b0a07] text-neutral-100 custom-scrollbar relative overflow-x-hidden"
 				>
 					<div
 						aria-hidden="true"
