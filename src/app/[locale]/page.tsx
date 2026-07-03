@@ -10,6 +10,7 @@ import { AnimatePresence } from "framer-motion";
 import PageWrapper from "@/components/transition/PageWrapper";
 import Container from "@/components/layout/Container";
 import LoadingScreen from "@/components/layout/LoadingScreen";
+import FloatingButtonGuestCup from "@/components/GuestCup/FloatingButtonGuestCup";
 
 export default function Home() {
 	const t = useTranslations("home");
@@ -83,6 +84,7 @@ export default function Home() {
 							{t("contact")}
 						</Link>
 					</div>
+					<FloatingButtonGuestCup href="/guest-cup" />
 				</Container>
 			</main>
 		</PageWrapper>

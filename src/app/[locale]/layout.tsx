@@ -4,8 +4,10 @@ import { getMessages } from "next-intl/server";
 import type { Metadata } from "next";
 import { Roboto } from "next/font/google";
 import ClientLayout from "./ClientLayout";
+import "flag-icons/css/flag-icons.min.css";
 import "../globals.css";
 import { ScrollToTop } from "@/components/layout/ScrollToTop";
+import { DevAdminPanel } from "@/components/DevAdminPanel/DevAdminPanel";
 
 export const roboto = Roboto({
 	subsets: ["latin"],
@@ -56,6 +58,7 @@ export default async function LocaleLayout({
 				<NextIntlClientProvider locale={locale} messages={messages}>
 					<ClientLayout>{children}</ClientLayout>
 				</NextIntlClientProvider>
+				<DevAdminPanel />
 				<ScrollToTop />
 			</body>
 		</html>

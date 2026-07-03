@@ -34,6 +34,9 @@
 		"title": "GALLERY",
 		"view": "VIEW"
 	},
+	"guest-cup": {
+		"title": "GUEST CUP"
+	},
 	"shop": {
 		"title": "SHOP",
 		"description": "Coming soon, items in the shop!"

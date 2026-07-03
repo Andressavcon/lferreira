@@ -34,6 +34,9 @@
 		"title": "GALERIA",
 		"view": "VER"
 	},
+	"guest-cup": {
+		"title": "COPA DOS CONVIDADOS"
+	},
 	"shop": {
 		"title": "LOJA",
 		"description": "Em breve, itens na loja!"

@@ -6,10 +6,17 @@ import Nav from "./Nav";
 import Logo from "./Logo";
 import { useLocale } from "next-intl";
 import LanguageSwitcher from "../LanguageSwitcher";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
 	const { navigate } = useTransitionNav();
 	const locale = useLocale();
+
+	const pathname = usePathname(); // 👈 novo
+
+	if (pathname.includes("/guest-cup")) {
+		return null;
+	}
 
 	return (
 		<header className={styles.header}>
