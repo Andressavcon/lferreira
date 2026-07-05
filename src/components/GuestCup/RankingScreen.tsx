@@ -133,7 +133,7 @@ export function RankingScreen({
 	}, []);
 
 	return (
-		<div className="min-h-screen bg-[#0b0a07] text-neutral-100 relative">
+		<div className="min-h-screen bg-[#0b0a07] text-neutral-100 relative overflow-x-hidden">
 			<div
 				aria-hidden="true"
 				className="pointer-events-none absolute top-0 left-1/2 size-[500px] -translate-x-1/2 rounded-full bg-[#d4af37]/5 blur-3xl"
