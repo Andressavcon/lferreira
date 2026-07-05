@@ -7,7 +7,7 @@ import { Clock } from "lucide-react";
 import { Game, Prediction } from "@/lib/type";
 import { CountryFlag } from "./CountryFlag";
 import { GameStatusBadge, OutcomeBadge } from "./GameStatusBadge";
-
+import { useState } from "react";
 
 function getOutcome(
 	predictedA: number | string,
@@ -31,7 +31,7 @@ function TeamBlock({ nome }: { nome: string }) {
 				nome={nome}
 				className="w-8 h-6 border border-neutral-800 bg-neutral-900"
 			/>
-			
+
 			<span className="text-xs font-medium text-neutral-400 line-clamp-1">
 				{getCountryLabel(nome)}
 			</span>
@@ -42,17 +42,21 @@ function TeamBlock({ nome }: { nome: string }) {
 export function GameCard({
 	game,
 	userPrediction,
+	predictionLoading = false,
 	onClick,
 }: {
 	game: Game;
 	userPrediction?: Prediction;
-	onClick: () => void;
+	predictionLoading?: boolean;
+	onClick: (locked: boolean) => void;
 }) {
 	const kickoffDate = new Date(game.game_date_time).getTime();
 	const cd = useCountdown(kickoffDate);
 
+	const [kickoffPassed] = useState(() => Date.now() >= kickoffDate);
+
 	const isFinished = game.real_score_a !== "" && game.real_score_b !== "";
-	const isLocked = isFinished || cd.isDone;
+	const isLocked = isFinished || cd.isDone || kickoffPassed;
 	const isOpen = !isLocked;
 
 	const outcome =
@@ -68,21 +72,24 @@ export function GameCard({
 	return (
 		<Card
 			role="button"
-			tabIndex={0}
-			onClick={onClick}
+			tabIndex={predictionLoading ? -1 : 0}
+			onClick={() => !predictionLoading && onClick(isLocked)}
 			onKeyDown={(e) => {
-				if (e.key === "Enter" || e.key === " ") {
+				if ((e.key === "Enter" || e.key === " ") && !predictionLoading) {
 					e.preventDefault();
-					onClick();
+					onClick(isLocked);
 				}
 			}}
-			className="group cursor-pointer gap-0 overflow-hidden border-neutral-800 bg-neutral-900/40 p-0 transition-all hover:-translate-y-0.5 hover:border-[#d4af37]/40 hover:bg-neutral-900/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af37]"
+			className={`group cursor-pointer gap-0 overflow-hidden border-neutral-800 bg-neutral-900/40 p-0 transition-all hover:-translate-y-0.5 hover:border-[#d4af37]/40 hover:bg-neutral-900/60 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#d4af37] ${predictionLoading ? "opacity-60 pointer-events-none" : ""}`}
 		>
 			<div className="flex items-center justify-between gap-2 border-b border-neutral-800 bg-neutral-950/20 px-4 py-2.5">
 				<span className="text-xs font-medium uppercase tracking-wider text-neutral-400">
 					{game.group_round}
 				</span>
-				<GameStatusBadge isFinished={isFinished} isLocked={isLocked && !isFinished} />
+				<GameStatusBadge
+					isFinished={isFinished}
+					isLocked={isLocked && !isFinished}
+				/>
 			</div>
 
 			<div className="flex items-center justify-between gap-3 px-4 py-5">
@@ -119,9 +126,14 @@ export function GameCard({
 				)}
 
 				<div className="text-right">
-					{isFinished ? (
+					{predictionLoading ? (
+						<span className="inline-flex h-4 w-20 animate-pulse rounded bg-neutral-800" />
+					) : isFinished ? (
 						outcome ? (
-							<OutcomeBadge outcome={outcome} className="text-[11px] px-2.5 py-1" />
+							<OutcomeBadge
+								outcome={outcome}
+								className="text-[11px] px-2.5 py-1"
+							/>
 						) : (
 							<span className="text-xs font-medium text-neutral-500">
 								Sem palpite

@@ -18,6 +18,7 @@ import {
 	getCachedGames,
 	setCachedGames,
 	clearGamesCache,
+	prefetchGames,
 } from "@/lib/gamesCache";
 import { GameCard } from "@/components/GuestCup/GameCard";
 import { GameModal } from "@/components/GuestCup/GameModal";
@@ -52,6 +53,7 @@ export default function DashboardPage() {
 	const [showRanking, setShowRanking] = useState(false);
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const [selectedGame, setSelectedGame] = useState<Game | null>(null);
+	const [selectedGameLocked, setSelectedGameLocked] = useState(false); // novo
 	const [submittingPrediction, setSubmittingPrediction] = useState(false);
 
 	useEffect(() => {
@@ -68,11 +70,20 @@ export default function DashboardPage() {
 		if (storedName) setUserName(storedName);
 
 		const cached = getCachedGames();
+
 		if (cached) {
 			setGames(cached);
 			setGamesLoading(false);
+			loadGames();
+		} else {
+			prefetchGames()
+				.then((freshGames) => setGames(freshGames))
+				.catch((error) => {
+					console.error("Erro ao buscar jogos:", error);
+					toast.error("Não foi possível carregar os jogos.");
+				})
+				.finally(() => setGamesLoading(false));
 		}
-		loadGames();
 		loadExtras(storedEmail, cached ?? undefined);
 	}, []);
 
@@ -181,8 +192,9 @@ export default function DashboardPage() {
 		router.push("/guest-cup");
 	};
 
-	const handleOpenGame = (game: Game) => {
+	const handleOpenGame = (game: Game, locked: boolean) => {
 		setSelectedGame(game);
+		setSelectedGameLocked(locked);
 		setIsModalOpen(true);
 	};
 
@@ -200,6 +212,23 @@ export default function DashboardPage() {
 			if (response.saved && response.saved.length > 0) {
 				toast.success("Palpite computado!");
 				setIsModalOpen(false);
+
+				setPredictions((prev) => {
+					const exists = prev.some((p) => String(p.game_id) === String(gameId));
+					const next = {
+						game_id: gameId,
+						email: userEmail,
+						predicted_score_a: scoreA,
+						predicted_score_b: scoreB,
+					} as Prediction;
+
+					return exists
+						? prev.map((p) =>
+								String(p.game_id) === String(gameId) ? { ...p, ...next } : p,
+							)
+						: [...prev, next];
+				});
+
 				loadExtras(userEmail);
 			} else {
 				toast.error("Erro ao processar palpite.");
@@ -408,7 +437,8 @@ export default function DashboardPage() {
 											key={game.game_id}
 											game={game}
 											userPrediction={userPrediction}
-											onClick={() => handleOpenGame(game)}
+											predictionLoading={extrasLoading}
+											onClick={(locked) => handleOpenGame(game, locked)}
 										/>
 									);
 								})}
@@ -418,6 +448,7 @@ export default function DashboardPage() {
 
 					<GameModal
 						game={selectedGame}
+						initialLocked={selectedGameLocked}
 						userPrediction={
 							selectedGame
 								? predictions.find(

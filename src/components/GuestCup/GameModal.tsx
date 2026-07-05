@@ -23,6 +23,7 @@ import { CountryFlag } from "./CountryFlag";
 
 export function GameModal({
 	game,
+	initialLocked,
 	userPrediction,
 	open,
 	onOpenChange,
@@ -30,6 +31,7 @@ export function GameModal({
 	submitting = false,
 }: {
 	game: Game | null;
+	initialLocked: boolean;
 	userPrediction?: Prediction;
 	open: boolean;
 	onOpenChange: (open: boolean) => void;
@@ -58,7 +60,7 @@ export function GameModal({
 	if (!game) return null;
 
 	const isFinished = game.real_score_a !== "" && game.real_score_b !== "";
-	const isLocked = isFinished || cd.isDone;
+	const isLocked = isFinished || cd.isDone || initialLocked;
 	const isOpen = !isLocked;
 	const hasPrediction = !!userPrediction;
 
