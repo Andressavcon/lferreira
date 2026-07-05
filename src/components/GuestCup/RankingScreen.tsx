@@ -113,6 +113,11 @@ export function RankingScreen({
 }) {
 	const currentUserRef = useRef<HTMLDivElement | null>(null);
 
+	const handleBack = () => {
+		window.scrollTo({ top: 0, behavior: "auto" });
+		onBack();
+	};
+
 	const sorted = [...participants].sort((a, b) => b.points - a.points);
 
 	const podium = [
@@ -144,7 +149,7 @@ export function RankingScreen({
 					<Button
 						variant="outline"
 						size="icon"
-						onClick={onBack}
+						onClick={handleBack}
 						aria-label="Voltar ao painel"
 						className="border-neutral-800 bg-neutral-900/60 text-neutral-300 hover:bg-neutral-800"
 					>

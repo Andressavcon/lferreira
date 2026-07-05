@@ -13,10 +13,15 @@ export function ScrollToTop() {
 		const toggleVisibility = (event: any) => {
 			const target = event.target;
 
-			if (target instanceof HTMLElement) {
-				const scrollTop = target.scrollTop || 0;
-				setIsVisible(scrollTop > 200);
+			let scrollTop = 0;
+
+			if (target === document || target === window) {
+				scrollTop = window.scrollY || document.documentElement.scrollTop || 0;
+			} else if (target instanceof HTMLElement) {
+				scrollTop = target.scrollTop || 0;
 			}
+
+			setIsVisible(scrollTop > 200);
 		};
 
 		window.addEventListener("scroll", toggleVisibility, true);
@@ -32,7 +37,7 @@ export function ScrollToTop() {
 		window.scrollTo(config);
 
 		const scrollables = document.querySelectorAll(
-			".scroll-content, [class*='overflow-y-auto']"
+			".scroll-content, [class*='overflow-y-auto']",
 		);
 		scrollables.forEach((el) => {
 			el.scrollTo(config);
