@@ -58,7 +58,6 @@ export default async function LocaleLayout({
 				<NextIntlClientProvider locale={locale} messages={messages}>
 					<ClientLayout>{children}</ClientLayout>
 				</NextIntlClientProvider>
-				<DevAdminPanel />
 				<ScrollToTop />
 			</body>
 		</html>

@@ -84,7 +84,6 @@ export default function Home() {
 							{t("contact")}
 						</Link>
 					</div>
-					<FloatingButtonGuestCup href="/guest-cup" />
 				</Container>
 			</main>
 		</PageWrapper>
