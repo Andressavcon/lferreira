@@ -136,7 +136,7 @@ export default function InterestModal({
 												loop
 												muted
 												playsInline
-												className="w-full h-full object-cover"
+												className="w-full h-full object-contain"
 											/>
 										) : (
 											<div className="w-full h-full flex flex-col items-center justify-center p-6 text-center bg-gradient-to-br from-neutral-900 to-black">
