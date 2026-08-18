@@ -39,7 +39,27 @@
 	},
 	"shop": {
 		"title": "LOJA",
-		"description": "Em breve, itens na loja!"
+		"description": "Em breve, itens na loja!",
+		"badge": "EM BREVE",
+		"productName": "MOLETOM LFERREIRA",
+		"productDescription": "Edição limitada. Cadastre-se para ser avisado no lançamento.",
+		"ctaButton": "TENHO INTERESSE",
+		"modal": {
+			"title": "QUERO SER AVISADO",
+			"description": "Deixe seu contato e avisaremos assim que o {product} estiver disponível.",
+			"namePlaceholder": "Seu Nome",
+			"contactTypeLabel": "Como prefere ser avisado?",
+			"email": "E-MAIL",
+			"whatsapp": "WHATSAPP",
+			"instagram": "INSTAGRAM",
+			"sizeLabel": "SELECIONE O TAMANHO",
+			"submitButton": "CONFIRMAR INTERESSE",
+			"submitting": "ENVIANDO...",
+			"successTitle": "OBRIGADO!",
+			"successDescription": "Seu contato foi salvo. Avisaremos você assim que for lançado.",
+			"close": "Fechar",
+			"errorMessage": "Algo deu errado. Por favor, tente novamente."
+		}
 	},
 	"videos": {
 		"title": "VIDEOS",

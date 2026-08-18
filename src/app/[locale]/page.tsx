@@ -84,6 +84,7 @@ export default function Home() {
 							{t("contact")}
 						</Link>
 					</div>
+
 				</Container>
 			</main>
 		</PageWrapper>

@@ -38,9 +38,29 @@
 		"title": "GUEST CUP"
 	},
 	"shop": {
-		"title": "SHOP",
-		"description": "Coming soon, items in the shop!"
-	},
+        "title": "SHOP",
+        "description": "Coming soon, items in the shop!",
+        "badge": "COMING SOON",
+        "productName": "LFERREIRA HOODIE",
+        "productDescription": "Limited edition. Sign up to be notified at launch.",
+        "ctaButton": "I'M INTERESTED",
+        "modal": {
+            "title": "NOTIFY ME",
+            "description": "Leave your contact info and we will notify you as soon as {product} is available.",
+            "namePlaceholder": "Your Name",
+            "contactTypeLabel": "How do you prefer to be notified?",
+            "email": "E-MAIL",
+            "whatsapp": "WHATSAPP",
+            "instagram": "INSTAGRAM",
+            "sizeLabel": "SELECT SIZE",
+            "submitButton": "CONFIRM INTEREST",
+            "submitting": "SENDING...",
+            "successTitle": "THANK YOU!",
+            "successDescription": "Your contact has been saved. We will notify you at launch.",
+            "close": "Close",
+            "errorMessage": "Something went wrong. Please try again."
+        }
+    },
 	"videos": {
 		"title": "VIDEOS",
 		"month": {
