@@ -128,7 +128,6 @@ export default function InterestModal({
 								</Dialog.Close>
 
 								<div className="grid grid-cols-1 md:grid-cols-2 min-h-[480px]">
-									{/* Lado Esquerdo: Vídeo Maior */}
 									<div className="relative w-full h-64 md:h-full bg-neutral-900 overflow-hidden flex items-center justify-center border-b md:border-b-0 md:border-r border-white/10">
 										{videoUrl ? (
 											<video
@@ -140,7 +139,6 @@ export default function InterestModal({
 												className="w-full h-full object-cover"
 											/>
 										) : (
-											/* Placeholder caso não passe a prop videoUrl */
 											<div className="w-full h-full flex flex-col items-center justify-center p-6 text-center bg-gradient-to-br from-neutral-900 to-black">
 												<span className="text-xs uppercase tracking-widest text-neutral-500">
 													Prévia do Produto
@@ -149,7 +147,6 @@ export default function InterestModal({
 										)}
 									</div>
 
-									{/* Lado Direito: Formulário */}
 									<div className="p-6 md:p-8 flex flex-col justify-center">
 										{success ? (
 											<div className="py-6 text-center">
@@ -241,7 +238,6 @@ export default function InterestModal({
 															}
 														}}
 														onFocus={() => {
-															// Se selecionar Instagram e estiver vazio, insere o @ automaticamente
 															if (contactType === "instagram" && !contact) {
 																setContact("@");
 															}
