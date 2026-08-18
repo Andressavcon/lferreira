@@ -128,7 +128,8 @@ export default function InterestModal({
 								</Dialog.Close>
 
 								<div className="grid grid-cols-1 md:grid-cols-2 min-h-[480px]">
-									<div className="relative w-full h-64 md:h-full bg-neutral-900 overflow-hidden flex items-center justify-center border-b md:border-b-0 md:border-r border-white/10">
+									<div className="relative w-full aspect-video md:aspect-auto md:h-full bg-neutral-900 overflow-hidden flex items-center justify-center border-b md:border-b-0 md:border-r border-white/10">
+										{" "}
 										{videoUrl ? (
 											<video
 												src={videoUrl}

@@ -56,7 +56,7 @@
 			"submitButton": "CONFIRMAR INTERESSE",
 			"submitting": "ENVIANDO...",
 			"successTitle": "OBRIGADO!",
-			"successDescription": "Seu contato foi salvo. Avisaremos você assim que for lançado.",
+			"successDescription": "Seu contato foi salvo. Avisaremos você assim que estiver disponível.",
 			"close": "Fechar",
 			"errorMessage": "Algo deu errado. Por favor, tente novamente."
 		}
